@@ -1,42 +1,116 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <!-- Fragment #1 : Header files contains css and js references -->
 <head th:fragment="headerfiles">
-    <title>Introduction to SpringBoot Security</title>
-    <meta charset="UTF-8"/>
-    <link th:href="@{~/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+<title>Introduction to SpringBoot Security</title>
+<!-- <meta charset="UTF-8" />
+<link th:href="@{~/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet"> -->
+
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Font Awesome -->
+<link rel="stylesheet" th:href="@{~/plugins/fontawesome-free/css/all.min.css}" href="plugins/fontawesome-free/css/all.min.css" />
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet" th:href="@{~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css}"
+	href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+<!-- iCheck -->
+<link rel="stylesheet" th:href="@{~/plugins/icheck-bootstrap/icheck-bootstrap.min.css}"
+	href="plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+<!-- JQVMap -->
+<link rel="stylesheet" th:href="@{~/plugins/jqvmap/jqvmap.min.css}" href="plugins/jqvmap/jqvmap.min.css" />
+<!-- Theme style -->
+<link rel="stylesheet" th:href="@{~/dist/css/adminlte.min.css}" href="dist/css/adminlte.min.css" />
+<!-- overlayScrollbars -->
+<link rel="stylesheet" th:href="@{~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}"
+	href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+<!-- Daterange picker -->
+<link rel="stylesheet" th:href="@{~/plugins/daterangepicker/daterangepicker.css}"
+	href="plugins/daterangepicker/daterangepicker.css" />
+<!-- summernote -->
+<link rel="stylesheet" th:href="@{~/plugins/summernote/summernote-bs4.css}" href="plugins/summernote/summernote-bs4.css" />
+<!-- Google Font: Source Sans Pro -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet" />
+
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
 
-<!-- Fragment #2 : Navbar contains nav links -->
-<div th:fragment="nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Boot Security</a>
+		<!-- Fragment #2 : Navbar contains nav links -->
+		<div th:fragment="nav">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="#">Boot Security</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/index}"><i class="fa fa-home"></i>Home</a>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/profile/index}">Profile</a>
-                </li>
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/admin/index}">Admin</a>
-                </li>
-                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/management/index}">Management</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
-                <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
-                <button sec:authorize="isAnonymous()" th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>
-            </form>
-        </div>
-    </nav>
-</div>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><a class="nav-link" href="#"
+							th:href="@{~/index}"><i class="fa fa-home"></i>Home</a></li>
+						<li sec:authorize="isAuthenticated()" class="nav-item"><a
+							class="nav-link" href="#" th:href="@{~/profile/index}">Profile</a>
+						</li>
+						<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+							class="nav-link" href="#" th:href="@{~/admin/index}">Admin</a></li>
+						<li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')"
+							class="nav-item"><a class="nav-link" href="#"
+							th:href="@{~/management/index}">Management</a></li>
+					</ul>
+					<form class="form-inline my-2 my-lg-0" form-method="post"
+						th:action="@{/logout}">
+						<button sec:authorize="isAuthenticated()"
+							class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+						<button sec:authorize="isAnonymous()" th:href="@{~/login}"
+							class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>
+					</form>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+	
+	<!-- Bootstrap 4 -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- ChartJS -->
+	<script src="plugins/chart.js/Chart.min.js"></script>
+	<!-- Sparkline -->
+	<script src="plugins/sparklines/sparkline.js"></script>
+	<!-- JQVMap -->
+	<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+	<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+	<!-- jQuery Knob Chart -->
+	<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+	<!-- daterangepicker -->
+	<script src="plugins/moment/moment.min.js"></script>
+	<script src="plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Tempusdominus Bootstrap 4 -->
+	<script
+		src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+	<!-- Summernote -->
+	<script src="plugins/summernote/summernote-bs4.min.js"></script>
+	<!-- overlayScrollbars -->
+	<script
+		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="dist/js/pages/dashboard.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="dist/js/demo.js"></script>
 </body>
 </html>
