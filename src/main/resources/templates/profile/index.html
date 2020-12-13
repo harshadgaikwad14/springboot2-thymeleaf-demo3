@@ -1,23 +1,105 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:insert="fragments.html :: headerfiles"></head>
-<body>
-<header th:insert="fragments.html :: nav"></header>
-<!-- Page content goes here -->
-<div class="container">
-    <p>This is User Profile\Index. Only authenticated people can see this</p>
-    <table>
-        <tr>
-            <td>Username</td>
-            <td><span sec:authentication="name"></span></td>
-        </tr>
-        <tr>
-            <td>Authorities</td>
-            <td><span sec:authentication="principal.authorities"></span></td>
-        </tr>
-    </table>
-</div>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<div th:insert="fragments.html :: headermenu"></div>
+		<div th:insert="fragments.html :: leftmenu"></div>
+		<!-- Page content goes here -->
+
+		<div class="content-wrapper">
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark">Dashboard</h1>
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">Dashboard v1</li>
+							</ol>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<section class="content">
+				<p>This is User Profile\Index. Only authenticated people can see
+					this</p>
+				<table>
+					<tr>
+						<td>Username</td>
+						<td><span sec:authentication="name"></span></td>
+					</tr>
+					<tr>
+						<td>Authorities</td>
+						<td><span sec:authentication="principal.authorities"></span></td>
+					</tr>
+				</table>
+				<div class="jumbotron">
+					<h1 class="display-4">Hello, Spring Boot Security!</h1>
+					<p class="lead">This is the home page of our web application.
+						Anyone can access it, even if they have not signed in.</p>
+					<hr class="my-4">
+					<p>Using this example, you will become more familiar with
+						Spring Security concepts:)</p>
+					<p class="lead">
+						<a class="btn btn-primary btn-lg"
+							href="https://spring.io/projects/spring-security" role="button">Learn
+							more about Spring Security</a>
+					</p>
+				</div>
+			</section>
+
+		</div>
+
+		<div th:insert="fragments.html :: footer"></div>
+
+	</div>
+	<div th:insert="fragments.html :: jqueryload"></div>
+
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
+	<!-- Bootstrap 4 -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- ChartJS -->
+	<script src="plugins/chart.js/Chart.min.js"></script>
+	<!-- Sparkline -->
+	<script src="plugins/sparklines/sparkline.js"></script>
+	<!-- JQVMap -->
+	<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+	<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+	<!-- jQuery Knob Chart -->
+	<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+	<!-- daterangepicker -->
+	<script src="plugins/moment/moment.min.js"></script>
+	<script src="plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Tempusdominus Bootstrap 4 -->
+	<script
+		src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+	<!-- Summernote -->
+	<script src="plugins/summernote/summernote-bs4.min.js"></script>
+	<!-- overlayScrollbars -->
+	<script
+		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="dist/js/pages/dashboard.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="dist/js/demo.js"></script>
 </body>
 </html>
