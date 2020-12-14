@@ -23,17 +23,22 @@ public class HomeController {
 		return "index";
 	}
 
-	@PreAuthorize("hasAnyAuthority('ACCESS_READ')")
+	@PreAuthorize("hasAnyAuthority('READ_PRIVILEGE')")
 	@GetMapping("read")
 	public String read() {
 		return "read";
 	}
-	@PreAuthorize("hasAnyAuthority('ACCESS_WRITE')")
-	@GetMapping("write")
+	@PreAuthorize("hasAnyAuthority('UPDATE_PRIVILEGE')")
+	@GetMapping("update")
 	public String write() {
-		return "write";
+		return "update";
 	}
-	@PreAuthorize("hasAnyAuthority('ACCESS_DELETE')")
+	@PreAuthorize("hasAnyAuthority('CREATE_PRIVILEGE')")
+	@GetMapping("create")
+	public String create() {
+		return "create";
+	}
+	@PreAuthorize("hasAnyAuthority('DELETE_PRIVILEGE')")
 	@GetMapping("delete")
 	public String delete() {
 		return "delete";

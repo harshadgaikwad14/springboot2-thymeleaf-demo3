@@ -38,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/index.html", "/build/**", "/dist/**", "/plugins/**").permitAll()
+		http.authorizeRequests().antMatchers("/h2-console/**","/index.html", "/build/**", "/dist/**", "/plugins/**").permitAll()
 				.antMatchers("/profile/**").authenticated()
 				.antMatchers("/admin/**").hasRole("ADMIN")
 				.antMatchers("/adminonly/**").hasRole("ADMIN")
@@ -46,6 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
 				.antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
 				.antMatchers("/api/public/users").hasRole("ADMIN")
+				.antMatchers("/h2-console/**").hasRole("ADMIN")
 				.and()
 				.formLogin().loginProcessingUrl("/signin")
 				.loginPage("/login").permitAll().usernameParameter("txtUsername").passwordParameter("txtPassword").and()

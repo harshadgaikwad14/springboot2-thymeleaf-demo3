@@ -36,6 +36,23 @@ public class UserPrincipal implements UserDetails {
             GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + r);
             authorities.add(authority);
         });
+        
+        this.user.getRoles().forEach(role -> {
+        	
+        	System.out.println("Role : "+role.getName());
+        	GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" +role.getName());
+            authorities.add(authority);
+        	
+        	role.getPrivileges().forEach(privileges -> {
+        		System.out.println("Privileges : "+privileges.getName());
+        		 GrantedAuthority authority1 = new SimpleGrantedAuthority(privileges.getName());
+                 authorities.add(authority1);
+        		
+        	});
+            
+        });
+        
+
 
         return authorities;
     }
