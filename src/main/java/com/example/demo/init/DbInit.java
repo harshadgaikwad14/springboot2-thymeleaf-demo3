@@ -53,50 +53,142 @@ public class DbInit implements CommandLineRunner {
 
 		// Save to db
 		this.userRepository.saveAll(users);
-		
-		userCreation();
-		harshad();
+
+		createPrivilege();
+		superUser();
+		instituteAdminUser();
+
 	}
-	
+
+	public void createPrivilege() {
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("COUNTRY_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("COUNTRY_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("COUNTRY_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("COUNTRY_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("STATE_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("STATE_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STATE_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STATE_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN", Arrays.asList(createPrivilegeIfNotFound("CITY_READ_PRIVILEGE"),
+				createPrivilegeIfNotFound("CITY_CREATE_PRIVILEGE"), createPrivilegeIfNotFound("CITY_UPDATE_PRIVILEGE"),
+				createPrivilegeIfNotFound("CITY_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("COMPANY_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("COMPANY_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("COMPANY_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("COMPANY_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("BOARD_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("BOARD_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("BOARD_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("BOARD_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("STANDARD_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("STANDARD_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STANDARD_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STANDARD_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("COURSE_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("COURSE_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("COURSE_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("COURSE_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("SUBJECT_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("SUBJECT_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("SUBJECT_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("SUBJECT_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("CHAPTER_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("CHAPTER_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("CHAPTER_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("CHAPTER_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("TOPIC_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("TOPIC_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TOPIC_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TOPIC_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("SUBTOPIC_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("SUBTOPIC_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("SUBTOPIC_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("SUBTOPIC_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("ACADEMICYEAR_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("ACADEMICYEAR_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("ACADEMICYEAR_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("ACADEMICYEAR_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("INSTITUTE_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("INSTITUTE_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("INSTITUTE_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("INSTITUTE_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("TEACHER_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("INSTITUTEADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("TEACHER_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("SUPERADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("STUDENT_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("STUDENT_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STUDENT_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STUDENT_DELETE_PRIVILEGE")));
+
+		createRoleIfNotFound("INSTITUTEADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("STUDENT_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("STUDENT_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STUDENT_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("STUDENT_DELETE_PRIVILEGE")));
+	}
+
 	@Transactional
-	public void harshad()
-	{
-		Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
-		Privilege createPrivilege = createPrivilegeIfNotFound("CREATE_PRIVILEGE");
-		Privilege updatePrivilege = createPrivilegeIfNotFound("UPDATE_PRIVILEGE");
-		Privilege deletePrivilege = createPrivilegeIfNotFound("DELETE_PRIVILEGE");
-		createRoleIfNotFound("MANAGER", Arrays.asList(readPrivilege, createPrivilege,updatePrivilege,deletePrivilege));
-		Role role = roleRepository.findByName("MANAGER");
-		
+	public void superUser() {
+
+		Role superAdmin = roleRepository.findByName("SUPERADMIN");
+		Role instituteAdmin = roleRepository.findByName("INSTITUTEADMIN");
+
 		User user = new User();
-		user.setUsername("harshad");
+		user.setUsername("superuser");
 		user.setActive(1);
-		user.setPassword(passwordEncoder.encode("harshad"));
-		user.setRoles(Arrays.asList(role));
-		//user.setEnabled(false);
+		user.setPassword(passwordEncoder.encode("superuser"));
+		user.setRoles(Arrays.asList(superAdmin, instituteAdmin));
+
 		userRepository.save(user);
 
 	}
 
 	@Transactional
-	public void userCreation() {
+	public void instituteAdminUser() {
 
-		Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
-		Privilege writePrivilege = createPrivilegeIfNotFound("CREATE_PRIVILEGE");
-
-		createRoleIfNotFound("ADMIN", Arrays.asList(readPrivilege, writePrivilege));
-		createRoleIfNotFound("USER", Arrays.asList(readPrivilege));
-		createRoleIfNotFound("MANAGER", Arrays.asList(readPrivilege, writePrivilege));
-
-		Role adminRole = roleRepository.findByName("USER");
+		Role instituteAdmin = roleRepository.findByName("INSTITUTEADMIN");
 		User user = new User();
-		user.setUsername("user@gmail.com");
+		user.setUsername("adminuser");
 		user.setActive(1);
-		
-		user.setPassword(passwordEncoder.encode("user"));
+		user.setPassword(passwordEncoder.encode("adminuser"));
+		user.setRoles(Arrays.asList(instituteAdmin));
 
-		user.setRoles(Arrays.asList(adminRole));
-		user.setEnabled(false);
 		userRepository.save(user);
 
 	}

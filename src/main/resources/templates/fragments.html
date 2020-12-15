@@ -159,44 +159,48 @@
 							data-widget="treeview" role="menu" data-accordion="false">
 							<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-							<li class="nav-item has-treeview menu-open"><a href="#"
-								class="nav-link active"> <i
-									class="nav-icon fas fa-tachometer-alt"></i>
+
+
+
+							<li class="nav-item has-treeview"
+								sec:authorize="hasAnyRole('ROLE_SUPERADMIN')"><a href="#"
+								class="nav-link"> <i class="nav-icon fas fa-edit"></i>
 									<p>
-										Dashboard <i class="right fas fa-angle-left"></i>
+										Master <i class="fas fa-angle-left right"></i>
 									</p>
 							</a>
 								<ul class="nav nav-treeview">
-									<li class="nav-item"><a href="./index.html"
-										class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-											<p>Dashboard v1</p>
-									</a></li>
-									<li class="nav-item"><a href="./index2.html"
+									<li class="nav-item"><a href="#" th:href="@{~/boards}"
 										class="nav-link"> <i class="far fa-circle nav-icon"></i>
-											<p>Dashboard v2</p>
+											<p>Board</p>
 									</a></li>
-									<li class="nav-item"><a href="./index3.html"
-										class="nav-link"> <i class="far fa-circle nav-icon"></i>
-											<p>Dashboard v3</p>
+									<li class="nav-item"><a href="#"
+										th:href="@{~/academic-years}" class="nav-link"> <i
+											class="far fa-circle nav-icon"></i>
+											<p>Academic Year</p>
 									</a></li>
 
-									<li sec:authorize="isAuthenticated()" class="nav-item"><a
-										class="nav-link" href="#" th:href="@{~/read}">Read</a></li>
-
-									<li sec:authorize="isAuthenticated()" class="nav-item"><a
-										class="nav-link" href="#" th:href="@{~/create}">Create</a></li>
-
-
-									<li sec:authorize="isAuthenticated()" class="nav-item"><a
-										class="nav-link" href="#" th:href="@{~/update}">Update</a></li>
-
-
-									<li sec:authorize="isAuthenticated()" class="nav-item"><a
-										class="nav-link" href="#" th:href="@{~/delete}">Delete</a></li>
 								</ul></li>
+								
+								<li class="nav-item has-treeview"
+								sec:authorize="hasAnyRole('ROLE_SUPERADMIN','INSTITUTEADMIN')"><a href="#"
+								class="nav-link"> <i class="nav-icon fas fa-edit"></i>
+									<p>
+										Institute <i class="fas fa-angle-left right"></i>
+									</p>
+							</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item"><a href="#" th:href="@{~/teachers}"
+										class="nav-link"> <i class="far fa-circle nav-icon"></i>
+											<p>Teacher</p>
+									</a></li>
+									<li class="nav-item"><a href="#"
+										th:href="@{~/students}" class="nav-link"> <i
+											class="far fa-circle nav-icon"></i>
+											<p>Student</p>
+									</a></li>
 
-
-
+								</ul></li>
 
 						</ul>
 					</nav>
