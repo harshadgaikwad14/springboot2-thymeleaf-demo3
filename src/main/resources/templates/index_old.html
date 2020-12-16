@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<div th:insert="fragments.html :: headermenu"></div>
+		<div th:insert="fragments.html :: leftmenu"></div>
+
+		<!-- Page content goes here -->
+
+		<div class="content-wrapper">
+			<section class="content-header">
+
+				<div class="container-fluid">
+					<div class="inner-card max-height">
+						<div class="row">
+							<div class="col-12">
+								<ol class="breadcrumb float-sm-left">
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
+									<!-- <li class="breadcrumb-item"><a href="#">Master</a></li> -->
+									<li class="breadcrumb-item active">Test Paper</li>
+								</ol>
+							</div>
+						</div>
+						<div class="ques-selection-tab">
+							<div class="row">
+								<div class="col-12">
+									<ul class="nav nav-tabs" id="myTab" role="tablist"
+										style="text-transform: uppercase;">
+										<li class="nav-item"><a class="nav-link active"
+											id="home-tab" data-toggle="tab" href="#sec1" role="tab"
+											aria-controls="home" aria-selected="true">Phy sec-1</a></li>
+										<li class="nav-item"><a class="nav-link" id="profile-tab"
+											data-toggle="tab" href="#sec2" role="tab"
+											aria-controls="profile" aria-selected="false">Phy sec-2</a></li>
+										<li class="nav-item"><a class="nav-link" id="profile-tab"
+											data-toggle="tab" href="#sec2" role="tab"
+											aria-controls="profile" aria-selected="false">Phy sec-2</a></li>
+										<li class="nav-item"><a class="nav-link" id="profile-tab"
+											data-toggle="tab" href="#sec2" role="tab"
+											aria-controls="profile" aria-selected="false">Phy sec-2</a></li>
+										<li class="nav-item"><a class="btn btn-section"
+											id="addSection" data-toggle="modal"
+											data-target="#sectionModal"> <i
+												class="fas fa-plus icon-plus" data-toggle="tooltip"
+												data-placement="bottom" title="Add New Section"></i>
+										</a></li>
+									</ul>
+								</div>
+								<!-- <div class="col-lg-1 col-md-1 col-sm-12">
+                <div class="btn-add-wrapper" data-toggle="tooltip" data-placement="bottom" title="Add Section">
+                  <a class="btn btn-section" data-toggle="modal"  data-target="#exampleModal">
+                    <i class="fas fa-plus"></i>
+                  </a>              
+                </div>
+              </div> -->
+							</div>
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active" id="sec1" role="tabpanel"
+									aria-labelledby="home-tab">
+									<div class="sub-tab-selection">
+										<div class="row">
+											<div class="col-12">
+												<ul class="nav nav-tabs" id="myTab" role="tablist"
+													style="text-transform: uppercase;">
+													<li class="nav-item"><a class="nav-link active"
+														id="home-tab" data-toggle="tab" href="#subsec1" role="tab"
+														aria-controls="home" aria-selected="true">Physics</a></li>
+													<li class="nav-item"><a class="nav-link"
+														id="profile-tab" data-toggle="tab" href="#subsec2"
+														role="tab" aria-controls="profile" aria-selected="false">Maths</a>
+													</li>
+													<li class="nav-item"><a class="btn btn-section"
+														id="addSubject" data-toggle="modal"
+														data-target="#subjectModal"> <i
+															class="fas fa-plus icon-plus" data-toggle="tooltip"
+															data-placement="bottom" title="Add New Subject"></i>
+													</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="subsec1"
+												role="tabpanel" aria-labelledby="home-tab">
+												<br>
+												<div class="row">
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-7">
+														<input class="form-control form-control-navbar search-bar"
+															type="search" placeholder="Search" aria-label="Search">
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-5">
+														<a class="btn btn-filter round-btn"
+															style="float: right; margin-top: 20px; margin-left: 15px;"
+															data-toggle="modal" data-target="#exampleModal"> <i
+															class="fas fa-filter filter-icon"></i>
+														</a>
+														<div class="toatl-container">
+															<div class="total-txt">Total</div>
+															<div class="selected-mark">4 Marks</div>
+															<span class="slash"><i class="fas fa-slash"></i></span>
+															<div class="total-mark">50</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="ccol-sm-12 col-md-7 col-lg-7 col-xl-9">
+														<div class="page-title align-left visiblity-show">Question</div>
+													</div>
+													<div class="col-sm-12 col-md-5 col-lg-5 col-xl-3">
+														<div class="page-title marks-container visiblity-show">Marks</div>
+													</div>
+												</div>
+												<div class="row question-selected">
+													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-9">
+														<div class="unique-que-txt align-left">uqn : 1</div>
+														<div class="select-question-wrapper">
+															<div class="question-cb">
+																<div class="custom-control custom-checkbox small">
+																	<input type="checkbox" class="custom-control-input"
+																		id="customCheck"> <label
+																		class="custom-control-label" for="customCheck"
+																		style="padding-top: 3px;"></label>
+																</div>
+															</div>
+															<div class="question-type">
+																<div class="main-question-type blanks-st"
+																	data-toggle="tooltip" data-placement="bottom"
+																	title="Fill In The Blanks">
+																	1 <i class="fas fa-minus"></i>
+																</div>
+															</div>
+															<div class="main-question que-selected">combine
+																terms : 12a+26b+-4b-16a.</div>
+														</div>
+													</div>
+													<div class="col-sm-12 col-md-5 col-lg-5 col-xl-3">
+														<div class="que-marks">2</div>
+														<a class="view-option" style="color: black;"
+															data-toggle="collapse" href="#collapseExample"
+															role="button" aria-expanded="false"
+															aria-controls="collapseExample"> View Options <i
+															class="fas fa-chevron-down"></i>
+														</a>
+													</div>
+													<div class="row">
+														<div class="col-12">
+															<div class="collapse option-list" id="collapseExample">
+																<div>Option A. Demo Option 1</div>
+																<div>Option B. Demo Option 2</div>
+																<div>Option C. Demo Option 3</div>
+																<div>Option D. Demo Option 4</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row question-unselected">
+													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-9">
+														<div class="unique-que-txt align-left">uqn : 2</div>
+														<div class="select-question-wrapper">
+															<div class="question-cb">
+																<div class="custom-control custom-checkbox small">
+																	<input type="checkbox" class="custom-control-input"
+																		id="customCheck2"> <label
+																		class="custom-control-label" for="customCheck"
+																		style="padding-top: 3px;"></label>
+																</div>
+															</div>
+															<div class="question-type">
+																<div class="main-question-type multiple-st"
+																	data-toggle="tooltip" data-placement="bottom"
+																	title="Multiple Choice">
+																	2 <i class="fas fa-check-square"></i>
+																</div>
+															</div>
+															<div class="main-question">combine terms :
+																12a+26b+-4b-16a.</div>
+														</div>
+													</div>
+													<div class="col-sm-12 col-md-5 col-lg-5 col-xl-3">
+														<div class="que-marks">2</div>
+														<a class="view-option" style="color: black;"
+															data-toggle="collapse" href="#collapseExample"
+															role="button" aria-expanded="false"
+															aria-controls="collapseExample"> View Options <i
+															class="fas fa-chevron-down"></i>
+														</a>
+													</div>
+												</div>
+												<div class="row question-selected">
+													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-9">
+														<div class="unique-que-txt align-left">uqn : 3</div>
+														<div class="select-question-wrapper">
+															<div class="question-cb">
+																<div class="custom-control custom-checkbox small">
+																	<input type="checkbox" class="custom-control-input"
+																		id="customCheck3"> <label
+																		class="custom-control-label" for="customCheck"
+																		style="padding-top: 3px;"></label>
+																</div>
+															</div>
+															<div class="question-type">
+																<div class="main-question-type match-st"
+																	data-toggle="tooltip" data-placement="bottom"
+																	title="Match The Following">
+																	3 <i class="fas fa-random"></i>
+																</div>
+															</div>
+															<div class="main-question que-selected">combine
+																terms : 12a+26b+-4b-16a.</div>
+														</div>
+													</div>
+													<div class="col-sm-12 col-md-5 col-lg-5 col-xl-3">
+														<div class="que-marks">5</div>
+														<a class="view-option" style="color: black;"
+															data-toggle="collapse" href="#collapseExample"
+															role="button" aria-expanded="false"
+															aria-controls="collapseExample"> View Options <i
+															class="fas fa-chevron-down"></i>
+														</a>
+													</div>
+												</div>
+												<div class="row question-unselected">
+													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-9">
+														<div class="unique-que-txt align-left">uqn : 4</div>
+														<div class="select-question-wrapper">
+															<div class="question-cb">
+																<div class="custom-control custom-checkbox small">
+																	<input type="checkbox" class="custom-control-input"
+																		id="customCheck3"> <label
+																		class="custom-control-label" for="customCheck"
+																		style="padding-top: 3px;"></label>
+																</div>
+															</div>
+															<div class="question-type">
+																<div class="main-question-type true-st"
+																	data-toggle="tooltip" data-placement="bottom"
+																	title="True & False">
+																	4 <i class="fas fa-check"></i>
+																</div>
+															</div>
+															<div class="main-question">Rice weighing 33/4
+																pounds was divided equally and placed in 4 containers.
+																How many ounces of rice were in each?</div>
+														</div>
+													</div>
+													<div class="col-sm-12 col-md-5 col-lg-5 col-xl-3">
+														<div class="que-marks">2</div>
+														<a class="view-option" style="color: black;"
+															data-toggle="collapse" href="#collapseExample"
+															role="button" aria-expanded="false"
+															aria-controls="collapseExample"> View Options <i
+															class="fas fa-chevron-down"></i>
+														</a>
+													</div>
+												</div>
+												<div class="row question-unselected">
+													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-9">
+														<div class="unique-que-txt align-left">uqn : 5</div>
+														<div class="select-question-wrapper">
+															<div class="question-cb">
+																<div class="custom-control custom-checkbox small">
+																	<input type="checkbox" class="custom-control-input"
+																		id="customCheck3"> <label
+																		class="custom-control-label" for="customCheck"
+																		style="padding-top: 3px;"></label>
+																</div>
+															</div>
+															<div class="question-type">
+																<div class="main-question-type order-st"
+																	data-toggle="tooltip" data-placement="bottom"
+																	title="Correct Order">
+																	5 <i class="fas fa-list-ol"></i>
+																</div>
+															</div>
+															<div class="main-question">Rice weighing 33/4
+																pounds was divided equally and placed in 4 containers.
+																How many ounces of rice were in each?</div>
+														</div>
+													</div>
+													<div class="col-sm-12 col-md-5 col-lg-5 col-xl-3">
+														<div class="que-marks">10</div>
+														<a class="view-option" style="color: black;"
+															data-toggle="collapse" href="#collapseExample"
+															role="button" aria-expanded="false"
+															aria-controls="collapseExample"> View Options <i
+															class="fas fa-chevron-down"></i>
+														</a>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+														<div class="record-selection">
+															<div style="margin-top: 25px; margin-right: 10px;">Records</div>
+															<div>
+																<select class="custom-select fiter-input"
+																	style="width: 55px;"><option selected>
+																		5</option></select>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+														<button type="button" class="btn btn-primary test-btn">Save
+															test paper</button>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="subsec2" role="tabpanel"
+												aria-labelledby="profile-tab">Question Section 2</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="sec2" role="tabpanel"
+									aria-labelledby="profile-tab">Question Section 2</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</div>
+
+
+		<div th:insert="fragments.html :: footer"></div>
+
+	</div>
+	<div th:insert="fragments.html :: jqueryload"></div>
+</body>
+</html>
