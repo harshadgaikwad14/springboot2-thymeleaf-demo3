@@ -54,13 +54,14 @@ public class DbInit implements CommandLineRunner {
 		// Save to db
 		this.userRepository.saveAll(users);
 
-		createPrivilege();
-		superUser();
-		instituteAdminUser();
+		//createSuperAdminRole();
+		createInstituteAdminRole();
+		//superUser();
+		//instituteAdminUser();
 
 	}
-
-	public void createPrivilege() {
+	@Transactional
+	public void createSuperAdminRole() {
 
 		createRoleIfNotFound("SUPERADMIN",
 				Arrays.asList(createPrivilegeIfNotFound("COUNTRY_READ_PRIVILEGE"),
@@ -144,17 +145,24 @@ public class DbInit implements CommandLineRunner {
 						createPrivilegeIfNotFound("TEACHER_UPDATE_PRIVILEGE"),
 						createPrivilegeIfNotFound("TEACHER_DELETE_PRIVILEGE")));
 
-		createRoleIfNotFound("INSTITUTEADMIN",
-				Arrays.asList(createPrivilegeIfNotFound("TEACHER_READ_PRIVILEGE"),
-						createPrivilegeIfNotFound("TEACHER_CREATE_PRIVILEGE"),
-						createPrivilegeIfNotFound("TEACHER_UPDATE_PRIVILEGE"),
-						createPrivilegeIfNotFound("TEACHER_DELETE_PRIVILEGE")));
+		
 
 		createRoleIfNotFound("SUPERADMIN",
 				Arrays.asList(createPrivilegeIfNotFound("STUDENT_READ_PRIVILEGE"),
 						createPrivilegeIfNotFound("STUDENT_CREATE_PRIVILEGE"),
 						createPrivilegeIfNotFound("STUDENT_UPDATE_PRIVILEGE"),
 						createPrivilegeIfNotFound("STUDENT_DELETE_PRIVILEGE")));
+		
+		
+	}
+	@Transactional
+	public void createInstituteAdminRole()
+	{
+		createRoleIfNotFound("INSTITUTEADMIN",
+				Arrays.asList(createPrivilegeIfNotFound("TEACHER_READ_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_CREATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_UPDATE_PRIVILEGE"),
+						createPrivilegeIfNotFound("TEACHER_DELETE_PRIVILEGE")));
 
 		createRoleIfNotFound("INSTITUTEADMIN",
 				Arrays.asList(createPrivilegeIfNotFound("STUDENT_READ_PRIVILEGE"),
