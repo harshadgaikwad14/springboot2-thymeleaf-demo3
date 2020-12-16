@@ -45,6 +45,13 @@ public class User implements Serializable {
 
 	@Column(nullable = false)
 	private String password;
+	
+	private Long mobileNo;
+
+
+	private String passwordConfirm;
+	
+	private String userType;
 
 	private int active;
 
@@ -155,6 +162,32 @@ public class User implements Serializable {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
+
+	public Long getMobileNo() {
+		return mobileNo;
+	}
+
+	public void setMobileNo(Long mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+	
+	
 	
 	
 
