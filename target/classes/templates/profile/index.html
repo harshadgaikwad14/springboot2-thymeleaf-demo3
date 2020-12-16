@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<div th:insert="fragments.html :: headermenu"></div>
+		<div th:insert="fragments.html :: leftmenu"></div>
+		<!-- Page content goes here -->
+
+		<div class="content-wrapper">
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark">Dashboard</h1>
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">Dashboard v1</li>
+							</ol>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<section class="content">
+				<p>This is User Profile\Index. Only authenticated people can see
+					this</p>
+				<table>
+					<tr>
+						<td>Username</td>
+						<td><span sec:authentication="name"></span></td>
+					</tr>
+					<tr>
+						<td>Authorities</td>
+						<td><span sec:authentication="principal.authorities"></span></td>
+					</tr>
+				</table>
+				<div class="jumbotron">
+					<h1 class="display-4">Hello, Spring Boot Security!</h1>
+					<p class="lead">This is the home page of our web application.
+						Anyone can access it, even if they have not signed in.</p>
+					<hr class="my-4">
+					<p>Using this example, you will become more familiar with
+						Spring Security concepts:)</p>
+					<p class="lead">
+						<a class="btn btn-primary btn-lg"
+							href="https://spring.io/projects/spring-security" role="button">Learn
+							more about Spring Security</a>
+					</p>
+				</div>
+			</section>
+
+		</div>
+
+		<div th:insert="fragments.html :: footer"></div>
+
+	</div>
+	<div th:insert="fragments.html :: jqueryload"></div>
+
+	
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<div th:insert="fragments.html :: headermenu"></div>
+		<div th:insert="fragments.html :: leftmenu"></div>
+		<!-- Page content goes here -->
+
+		<div class="content-wrapper">
+
+
+			<!-- Main content -->
+			<section class="content">
+				<h1 class="display-4">Access Denied</h1>
+
+			</section>
+
+		</div>
+
+		<div th:insert="fragments.html :: footer"></div>
+
+	</div>
+	<div th:insert="fragments.html :: jqueryload"></div>
+</body>
+</html>
