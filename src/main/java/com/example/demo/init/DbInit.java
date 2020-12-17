@@ -8,8 +8,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.model.entity.Privilege;
 import com.example.demo.model.entity.Role;
@@ -48,8 +50,15 @@ public class DbInit implements CommandLineRunner {
 		User write = new User("write", passwordEncoder.encode("write"), "WRITE", "ACCESS_READ,ACCESS_WRITE");
 		User delete = new User("delete", passwordEncoder.encode("delete"), "DELETE",
 				"ACCESS_READ,ACCESS_WRITE,ACCESS_DELETE");
-
-		List<User> users = Arrays.asList(user, admin, manager, read, write, delete);
+		
+		User superadmin = new User("superadmin", passwordEncoder.encode("superadmin"), "SUPERADMIN",
+				"STUDENT_READ_PRIVILEGE,TEACHER_READ_PRIVILEGE");
+		
+		User teacher = new User("teacher", passwordEncoder.encode("teacher"), "TEACHER",
+				"TEACHER_READ_PRIVILEGE");
+		
+		User student = new User("student", passwordEncoder.encode("student"), "STUDENT", "STUDENT_READ_PRIVILEGE");
+		List<User> users = Arrays.asList(user, admin, manager, read, write, delete,superadmin,teacher,student);
 
 		// Save to db
 		this.userRepository.saveAll(users);

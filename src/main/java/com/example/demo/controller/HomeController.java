@@ -1,7 +1,11 @@
 package com.example.demo.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +29,14 @@ public class HomeController {
 	private PasswordEncoder passwordEncoder;
 
 	@GetMapping("index")
-	public String index() {
+	public String index(Principal principal) {
+		System.out.println("********** HomeController - index");
+		final Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String n = auth.getName();
+		String r = auth.getAuthorities().toString();
+
+		System.out.println("the value of username is " + n);
+		System.out.println("the value of role is  " + r);
 		return "index";
 	}
 
@@ -50,21 +61,19 @@ public class HomeController {
 			return "register";
 		}
 
-		
-		System.out.println("userForm : "+userForm.getUserType());
-		
-		String role ="USER";
-		if("Teacher".equals(userForm.getUserType()))
-		{
-			role="ADMIN";
+		System.out.println("userForm : " + userForm.getUserType());
+
+		String role = "STUDENT";
+		String privilges = "STUDENT_READ_PRIVILEGE";
+		if ("Teacher".equals(userForm.getUserType())) {
+			role = "TEACHER";
+			privilges ="TEACHER_READ_PRIVILEGE";
+		} else if ("Admin".equals(userForm.getUserType())) {
+			role = "SUPERADMIN";
+			privilges ="STUDENT_READ_PRIVILEGE,TEACHER_READ_PRIVILEGE";
 		}
-		else if("Admin".equals(userForm.getUserType()))
-		{
-			role="MANAGER";
-		}
-			
-		
-		User user = new User(userForm.getUsername(), passwordEncoder.encode(userForm.getPassword()), role, "");
+
+		User user = new User(userForm.getUsername(), passwordEncoder.encode(userForm.getPassword()), role, privilges);
 		this.userRepository.save(user);
 
 		// securityService.autoLogin(userForm.getUsername(),
@@ -75,6 +84,7 @@ public class HomeController {
 
 	@GetMapping("adminonly")
 	public String adminonly() {
+		System.out.println("********** HomeController - adminonly");
 		return "index";
 	}
 

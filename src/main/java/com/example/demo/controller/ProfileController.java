@@ -10,6 +10,7 @@ public class ProfileController {
 
     @GetMapping("index")
     public String index(){
+    	  System.out.println("********** ProfileController - index");
         return "profile/index";
     }
 }

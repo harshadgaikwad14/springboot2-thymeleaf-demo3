@@ -13,5 +13,11 @@ public class StudentsController {
     public String students(){
         return "institute/student/students";
     }
+	
+	@PreAuthorize("hasAnyAuthority('STUDENT_READ_PRIVILEGE')")
+	@GetMapping("/student-dashbaord")
+    public String studentDashboard(){
+        return "studentDashboard";
+    }
 
 }

@@ -10,6 +10,7 @@ public class ManagementController {
 
     @GetMapping("index")
     public String index(){
+    	System.out.println("********** ManagementController - index");
         return "management/index";
     }
 }

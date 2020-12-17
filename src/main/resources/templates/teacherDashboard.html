@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<div th:insert="fragments.html :: headermenu"></div>
+		<div th:insert="fragments.html :: leftmenu"></div>
+
+		<!-- Page content goes here -->
+
+		<div class="content-wrapper">
+			<section class="content-header">
+
+
+				<div class="inner-card max-height">
+
+					<div class="content-header">
+      <div class="score-card">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+              <div class="student-img">
+                <img src="../../dist/img//teacher.svg">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 side-border">
+              <div class="test-counter">
+                <div class="card-txt">total created test</div>
+              </div>
+              <div class="teacher-test-count created-test">100</div>
+              </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+              <div class="test-counter">
+                <div class="card-txt">total test taken by students</div>
+              </div>
+              <div class="teacher-test-count taken-test">50</div>
+            </div>
+          </div>
+          <br>    
+        </div>
+      <div class="inner-card position-center" style="margin-top:50px;">
+        <div class="row">
+          <div class="col-9">
+            <div class="heading" style="margin-bottom:15px;">Upcoming lectures</div>
+          </div>
+          <div class="col-3">
+            <a class="view-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+             View All
+            </a>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="lecture-card" style="margin-bottom:20px;">
+              <div class="tecaher-live-container live-container">Live</div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="date-txt">26 </div>
+                  <div class="month-txt">Nov</div>
+                  <div class="lec-timing">7.30 to 9.00 pm</div>
+                </div>
+                <div class="col-9">
+                  <div class="details-container">
+                    <div class="batch-txt">ranker - 1</div>
+                    <div class="topic-txt">Quadartic Equation + Chemical Equillibrium</div>
+                    <div class="subjects">
+                    <span class="badge badge-pill maths-bg">mathematics</span>
+                     <span class="badge badge-pill chem-bg">chemistry</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="lecture-card" style="margin-bottom:20px;">
+              <div class="tecaher-live-container live-container">Live</div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="date-txt">26 </div>
+                  <div class="month-txt">Nov</div>
+                  <div class="lec-timing">7.30 to 9.00 pm</div>
+                </div>
+                <div class="col-9">
+                  <div class="details-container">
+                    <div class="batch-txt">ranker - 1</div>
+                    <div class="topic-txt">Quadartic Equation + Chemical Equillibrium</div>
+                    <div class="subjects">
+                    <span class="badge badge-pill maths-bg">mathematics</span>
+                     <span class="badge badge-pill chem-bg">chemistry</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="lecture-card" style="margin-bottom:20px;">
+              <div class="tecaher-live-container live-container">Live</div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="date-txt">26 </div>
+                  <div class="month-txt">Nov</div>
+                  <div class="lec-timing">7.30 to 9.00 pm</div>
+                </div>
+                <div class="col-9">
+                  <div class="details-container">
+                    <div class="batch-txt">ranker - 1</div>
+                    <div class="topic-txt">Quadartic Equation + Chemical Equillibrium</div>
+                    <div class="subjects">
+                    <span class="badge badge-pill maths-bg">mathematics</span>
+                     <span class="badge badge-pill chem-bg">chemistry</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+          <div class="row ">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+              <div class="lecture-card" style="margin-bottom:20px;">
+                <div class="tecaher-live-container live-container">Live</div>
+                <div class="row">
+                  <div class="col-3">
+                    <div class="date-txt">26 </div>
+                    <div class="month-txt">Nov</div>
+                    <div class="lec-timing">7.30 to 9.00 pm</div>
+                  </div>
+                  <div class="col-9">
+                    <div class="details-container">
+                      <div class="batch-txt">ranker - 1</div>
+                      <div class="topic-txt">Quadartic Equation + Chemical Equillibrium</div>
+                      <div class="subjects">
+                      <span class="badge badge-pill maths-bg">mathematics</span>
+                      <span class="badge badge-pill chem-bg">chemistry</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+              <div class="lecture-card" style="margin-bottom:20px;">
+                <div class="row">
+                  <div class="col-3">
+                    <div class="date-txt">26 </div>
+                    <div class="month-txt">Nov</div>
+                    <div class="lec-timing">7.30 to 9.00 pm</div>
+                  </div>
+                  <div class="col-9">
+                    <div class="details-container">
+                      <div class="batch-txt">ranker - 1</div>
+                      <div class="topic-txt">Quadartic Equation + Chemical Equillibrium</div>
+                      <div class="subjects">
+                      <span class="badge badge-pill biology-bg">biology</span>
+                      <span class="badge badge-pill physics-bg">physics</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+              <div class="lecture-card" style="margin-bottom:20px;">
+                <div class="row">
+                  <div class="col-3">
+                    <div class="date-txt">26 </div>
+                    <div class="month-txt">Nov</div>
+                    <div class="lec-timing">7.30 to 9.00 pm</div>
+                  </div>
+                  <div class="col-9">
+                    <div class="details-container">
+                      <div class="batch-txt">ranker - 1</div>
+                      <div class="topic-txt">Human Genes + Chemical Equillibrium</div>
+                      <div class="subjects">
+                      <span class="badge badge-pill biology-bg">biology</span>
+                      <span class="badge badge-pill chem-bg">chemistry</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inner-card position-center" style="margin-top:50px;padding-bottom:20px;">
+        <div class="row">
+          <div class="col-9">
+            <div class="heading" style="margin-bottom:15px;">enrolled courses</div>
+          </div>
+          <div class="col-3">
+            <a class="view-btn" data-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="collapseExample">
+             View All
+            </a>          
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+            <div class="video-content maths-series">
+              <div class="tags-container">
+              <span class="badge offline-tags badge-pill"> offline</span>
+              <span class="badge tags badge-pill moderate-tag"> moderate</span>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="topic-name">mathematics series - 1 </div>
+                <div class="total-que">Total Question : 50</div>
+              </div>
+              <div class="col-4">
+                <div class="right-btn">
+                  <a class="btn btn-filter round-btn">
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+            <div class="video-content science-series">
+              <div class="tags-container">
+                <span class="badge offline-tags badge-pill"> offline</span>
+                <span class="badge tags badge-pill difficult-tag"> difficult</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="topic-name">science series - 1 </div>
+                <div class="total-que">Total Question : 50</div>
+              </div>
+              <div class="col-4">
+                <div class="right-btn">
+                  <a class="btn btn-filter round-btn">
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+            <div class="video-content maths-series">
+              <div class="tags-container">
+                <span class="badge tags badge-pill difficult-tag"> difficult</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="topic-name">mathematics series - 1 </div>
+                <div class="total-que">Total Question : 50</div>
+              </div>
+              <div class="col-4">
+                <div class="right-btn">
+                  <a class="btn btn-filter round-btn">
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+            <div class="video-content maths-series">
+              <div class="tags-container">
+                <span class="badge tags badge-pill easy-tag"> beginner</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="topic-name">mathematics series - 1 </div>
+                <div class="total-que">Total Question : 50</div>
+              </div>
+              <div class="col-4">
+                <div class="right-btn">
+                  <a class="btn btn-filter round-btn">
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>      
+      </div>
+      <div class="inner-card position-center" style="margin-top:50px;padding-bottom:20px;">
+        <div class="row">
+          <div class="col-9">
+            <div class="heading" style="margin-bottom:15px;">pending review test <span class="count">5</span></div>
+          </div>
+          <div class="col-3">
+            <a class="view-btn" data-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="collapseExample">
+             View All
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="uploaded-test-container">
+            <div class="test-upload">
+              <div class="details">
+                <img src="../../dist/img/test-paper.jpg">
+                <div class="">Sujit Sarkar</div>
+                <div class="">RAN- 1</div>
+              </div>
+            </div>
+            <div class="test-upload">
+              <div class="details">
+                <img src="../../dist/img/test-paper.jpg">
+                <div class="">Sujit Sarkar</div>
+                <div class="">RAN- 1</div>
+              </div>
+            </div>
+            <div class="test-upload">
+              <div class="details">
+                <img src="../../dist/img/test-paper.jpg">
+                <div class="">Sujit Sarkar</div>
+                <div class="">RAN- 1</div>
+              </div>
+            </div>
+            <div class="test-upload">
+              <div class="details">
+                <img src="../../dist/img/test-paper.jpg">
+                <div class="">Sujit Sarkar</div>
+                <div class="">RAN- 1</div>
+              </div>
+            </div>
+            <div class="test-upload">
+              <div class="details">
+                <img src="../../dist/img/test-paper.jpg">
+                <div class="">Sujit Sarkar</div>
+                <div class="">RAN- 1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+				</div>
+
+
+			</section>
+		</div>
+
+
+		<div th:insert="fragments.html :: footer"></div>
+
+	</div>
+	<div th:insert="fragments.html :: jqueryload"></div>
+</body>
+</html>

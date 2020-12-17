@@ -1,16 +1,18 @@
 package com.example.demo.controller;
 
+import java.util.Collection;
+
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("admin")
-public class AdminController {
-
-    @GetMapping("index")
+public class DashboardController {
+	
+	
+	 @GetMapping("/dashboard")
     public String index(){
     	
     	System.out.println("********** AdminController - index");
@@ -20,6 +22,17 @@ public class AdminController {
 
 		System.out.println("the value of username is " + n);
 		System.out.println("the value of role is  " + r);
-        return "admin/index";
+		
+		if(r.contains("ROLE_STUDENT"))
+		{
+			return "redirect:/student-dashbaord";
+		}
+		else if(r.contains("ROLE_TEACHER"))
+		{
+			return "redirect:/teacher-dashbaord";
+		}
+
+		
+        return "index";
     }
 }
